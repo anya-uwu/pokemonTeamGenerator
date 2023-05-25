@@ -13,24 +13,40 @@ const Team = () => {
 
         // maybe make the generate part a form instead so i can add more selection options later
 
-    const [numbers, setNumber] = useState([]);
+    const [nums, setNums] = useState([]);
+    const pokemon = [];
 
-    const random = function () {
+    function random() {
         let number = Math.floor((Math.random() * 1015) + 1);
         return number
     }
 
-    const generateNum = function () {
+    function generateNums() {
         let numbers = [];
         for (let i = 0; i < 6; i++) {
-            numbers.push(random());
+            getPokemon(random());
         }
-        console.log(numbers);
-        return numbers;
     }
 
-    generateNum();
-    
+    function getPokemon(num) {
+        const url = new URL(`https://pokeapi.co/api/v2/pokemon/${num}`);
+        // url.search = new URLSearchParams({
+        //   name: "bulbasaur",
+        // });
+
+        fetch(url)
+            .then(results => {
+                return results.json();
+            }).then(pokeData => {
+                pokemon.push(pokeData);
+                // console.log(pokeData);
+                // console.log(pokeData.name);
+            })
+    };
+
+    generateNums();
+    console.log(pokemon);
+
     return(
         <ul>
             
