@@ -1,4 +1,5 @@
 import Pokemon from "./Pokemon";
+import { useState } from "react";
 
 const Team = () => {
     // random function for generating random numbers
@@ -12,7 +13,24 @@ const Team = () => {
 
         // maybe make the generate part a form instead so i can add more selection options later
 
+    const [numbers, setNumber] = useState([]);
 
+    const random = function () {
+        let number = Math.floor((Math.random() * 1015) + 1);
+        return number
+    }
+
+    const generateNum = function () {
+        let numbers = [];
+        for (let i = 0; i < 6; i++) {
+            numbers.push(random());
+        }
+        console.log(numbers);
+        return numbers;
+    }
+
+    generateNum();
+    
     return(
         <ul>
             
