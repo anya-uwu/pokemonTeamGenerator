@@ -1,6 +1,8 @@
 
 const Pokemon = ({ name, type, imageSource }) => {
 
+    console.log(type);
+
     return(
         <li>
             <div className="imageContainer">
