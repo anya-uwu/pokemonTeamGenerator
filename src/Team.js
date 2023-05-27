@@ -45,6 +45,7 @@ const Team = () => {
             getPokemon(random());
         }
         setPokemonTeam(pokemon);
+        console.log(pokemonTeam);
         // console.log()
     };
 
@@ -55,6 +56,9 @@ const Team = () => {
     return (
         <section>
             <ul>
+                <button onClick={generateNums}>Generate</button>
+                {/* <Form handleSubmit={generateNums}/> */}
+                
                 {
                     pokemonTeam.map((pokemonObj) => {
                         return <Pokemon
@@ -66,9 +70,6 @@ const Team = () => {
                     })
                 }
             </ul>
-            <Pokemon/>
-            <button onClick={generateNums}>Generate</button>
-            {/* <Form handleSubmit={generateNums}/> */}
         </section>
     )
 }
