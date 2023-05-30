@@ -34,31 +34,26 @@ const Team = () => {
                 return results.json();
             }).then(pokeData => {
                 pokemon.push(pokeData);
+
                 // console.log(pokeData);
                 // console.log(pokeData.name);
             })
     };
 
     function generateNums() {
-        let numbers = [];
         for (let i = 0; i < 6; i++) {
             getPokemon(random());
         }
         setPokemonTeam(pokemon);
-        console.log(pokemonTeam);
-        // console.log()
     };
 
-    // generateNums();
     // setPokemonTeam(pokemon);
-    // console.log(pokemon);
 
     return (
         <section>
             <ul>
                 <button onClick={generateNums}>Generate</button>
                 {/* <Form handleSubmit={generateNums}/> */}
-                
                 {
                     pokemonTeam.map((pokemonObj) => {
                         return <Pokemon
