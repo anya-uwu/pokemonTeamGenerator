@@ -4,10 +4,16 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App wrapper">
-      <header>Pokemon Team Generator</header>
-      <Team/>
-      <footer>Made by Anya © 2023</footer>
+    <div className="wrapper">
+      <header>
+        <h1>Pokemon Team Generator</h1>
+      </header>
+      <main>
+        <Team />
+      </main>
+      <footer>
+        <p>Made by Anya © 2023</p>
+      </footer>
     </div>
   );
 }

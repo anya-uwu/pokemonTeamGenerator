@@ -50,9 +50,10 @@ const Team = () => {
     // setPokemonTeam(pokemon);
 
     return (
-        <section>
-            <ul>
-                <button onClick={generateNums}>Generate</button>
+        <section className="flexContainer">
+            <button onClick={generateNums}>Generate</button>
+            
+            <ul className="team flexContainer">
                 {/* <Form handleSubmit={generateNums}/> */}
                 {
                     pokemonTeam.map((pokemonObj) => {
@@ -61,6 +62,7 @@ const Team = () => {
                             name={pokemonObj.name}
                             type={pokemonObj.types[0].type.name}
                             imageSource={pokemonObj.sprites.front_default}
+
                         />
                     })
                 }
