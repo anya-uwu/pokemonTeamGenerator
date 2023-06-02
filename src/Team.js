@@ -16,6 +16,7 @@ const Team = () => {
 
     const [pokemonTeam, setPokemonTeam] = useState([]);
     const pokemon = [];
+    const [press, setPress] = useState(false);
 
     function random() {
         let number = Math.floor((Math.random() * 1015) + 1);
@@ -24,7 +25,7 @@ const Team = () => {
 
     function getPokemon(num) {
         const url = new URL(`https://pokeapi.co/api/v2/pokemon/${num}`);
-        console.log(url);
+        // console.log(url);
         // url.search = new URLSearchParams({
         //   name: "bulbasaur", 
         // });
@@ -35,7 +36,6 @@ const Team = () => {
             }).then(pokeData => {
                 pokemon.push(pokeData);
 
-                // console.log(pokeData);
                 // console.log(pokeData.name);
             })
     };
@@ -44,26 +44,27 @@ const Team = () => {
         for (let i = 0; i < 6; i++) {
             getPokemon(random());
         }
+        setPress(true);
         setPokemonTeam(pokemon);
     };
+
 
     // setPokemonTeam(pokemon);
 
     return (
         <section className="flexContainer">
             <button onClick={generateNums}>Generate</button>
-            
+            {/* <Form handleSubmit={generateNums}/> */}
             <ul className="team flexContainer">
-                {/* <Form handleSubmit={generateNums}/> */}
                 {
                     pokemonTeam.map((pokemonObj) => {
-                        return <Pokemon
+                        return(
+                        <Pokemon
                             key={pokemonObj.id}
                             name={pokemonObj.name}
                             type={pokemonObj.types[0].type.name}
-                            imageSource={pokemonObj.sprites.front_default}
-
-                        />
+                            imageSource={pokemonObj.sprites.front_default}/>
+                        );
                     })
                 }
             </ul>
