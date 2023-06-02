@@ -10,7 +10,7 @@ const Pokemon = ({ name, type, imageSource }) => {
             </div>
             <div className="textContainer">
                 <h2>{name}</h2>
-
+            
                 {/* could also be a p element */}
                 <h3>{type}</h3> 
             </div>

@@ -1,6 +1,6 @@
 import Pokemon from "./Pokemon";
 import Form from "./Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Team = () => {
     // random function for generating random numbers
@@ -16,8 +16,7 @@ const Team = () => {
 
     const [pokemonTeam, setPokemonTeam] = useState([]);
     const pokemon = [];
-    const [press, setPress] = useState(false);
-
+    
     function random() {
         let number = Math.floor((Math.random() * 1015) + 1);
         return number;
@@ -34,8 +33,8 @@ const Team = () => {
             .then(results => {
                 return results.json();
             }).then(pokeData => {
-                pokemon.push(pokeData);
-
+                // pokemon.push(pokeData);
+                setPokemonTeam([...pokemonTeam, pokeData])
                 // console.log(pokeData.name);
             })
     };
@@ -44,12 +43,8 @@ const Team = () => {
         for (let i = 0; i < 6; i++) {
             getPokemon(random());
         }
-        setPress(true);
         setPokemonTeam(pokemon);
     };
-
-
-    // setPokemonTeam(pokemon);
 
     return (
         <section className="flexContainer">
