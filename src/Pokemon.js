@@ -19,3 +19,8 @@ const Pokemon = ({ name, type, imageSource }) => {
 }
 
 export default Pokemon;
+
+// notes for later
+// test with props instead
+// test with updating another piece of state not an array
+    // i think the reason the elements are showing is because another piece of state rerenders
