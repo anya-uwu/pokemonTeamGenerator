@@ -35,6 +35,7 @@ const Team = () => {
             }).then(pokeData => {
                 // pokemon.push(pokeData);
                 setPokemonTeam([...pokemonTeam, pokeData])
+                console.log(1)
                 // console.log(pokeData.name);
             })
     };
@@ -42,13 +43,14 @@ const Team = () => {
     function generateNums() {
         for (let i = 0; i < 6; i++) {
             getPokemon(random());
+            console.log(2)
         }
-        setPokemonTeam(pokemon);
     };
 
+    
     return (
         <section className="flexContainer">
-            <button onClick={generateNums}>Generate</button>
+            {/* <button onClick={generateNums}>Generate</button> */}
             {/* <Form handleSubmit={generateNums}/> */}
             <ul className="team flexContainer">
                 {
