@@ -35,6 +35,7 @@ const Team = () => {
                 return results.json();
             }).then(pokeData => {
                 pokemon.push(pokeData);
+                setPokemonTeam([...pokemonTeam, pokeData])
 
                 // console.log(pokeData.name);
             })

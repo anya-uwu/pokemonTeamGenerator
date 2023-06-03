@@ -23,19 +23,19 @@ function App() {
       .then(results => {
         return results.json();
       }).then(pokeData => {
-        pokemon.push(pokeData);
+        setPokemonTeam([...pokemonTeam, pokeData])
 
-        // console.log(pokeData.name);
       })
   };
 
   function generateNums() {
     for (let i = 0; i < 6; i++) {
       getPokemon(random());
+  
     }
-    setPokemonTeam(pokemon);
   };
 
+  generateNums();
 
   return (
     <div className="wrapper">
