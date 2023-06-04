@@ -3,13 +3,11 @@
 import Pokemon from "./Pokemon";
 // import Form from "./Form";
 import './styles/Team.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // error handling for the api call
 // check for duplicate pokemon
 // delete extra css files
-
-
 
 const Team = () => {
 
@@ -61,6 +59,12 @@ const Team = () => {
             setPokemonTeam(pokemon)
         }, 300)
     };
+
+    // useEffect so that user is shown a random team on page load before they click the button
+    useEffect(() => {
+        return () => click()
+
+    }, []);
 
     return (
         <section className="flexContainer">

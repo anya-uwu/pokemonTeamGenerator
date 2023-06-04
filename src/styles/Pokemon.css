@@ -1,15 +1,13 @@
 /* styles for Pokemon.js */
 
-li {
+.pokemon {
     list-style: none;
     padding: 0;
     margin: 10px 0;
     background-color: lightgray;
     border-radius: 30px;
-}
-
-.pokemon {
     width: 45%;
+    height: 30%;
     flex-direction: column;
 }
 
