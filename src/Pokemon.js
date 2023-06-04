@@ -1,4 +1,5 @@
 // Pokemon.js
+import './styles/Pokemon.css';
 
 const Pokemon = ({ name, type, imageSource }) => {
     return(

@@ -1,5 +1,7 @@
 import Team from './Team';
-import './App.css';
+import './styles/App.css';
+import './styles/Setup.css';
+import './styles/BaseStyles.css';
 
 function App() {
   return (

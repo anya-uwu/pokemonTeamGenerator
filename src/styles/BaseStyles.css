@@ -1,0 +1,30 @@
+/* base styles */
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1080px;
+    width: 80%;
+}
+
+img {}
+
+/* font styles */
+
+body {}
+
+h1,
+h2,
+h3,
+footer p {
+    text-align: center;
+}
+
+/* button styles */
+
+button {
+    display: block;
+    width: 30%;
+    padding: 20px 10px;
+    border: none;
+    border-radius: 40px;
+}

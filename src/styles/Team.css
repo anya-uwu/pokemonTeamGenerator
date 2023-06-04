@@ -1,0 +1,24 @@
+/* styles for Team.js */
+
+/* section styles */
+
+section {
+    flex-direction: column;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+ul {
+    padding: 10px;
+    background-color: grey;
+}

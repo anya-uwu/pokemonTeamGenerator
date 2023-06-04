@@ -1,0 +1,20 @@
+/* styles for Pokemon.js */
+
+li {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+
+.pokemon {
+    width: 45%;
+    flex-direction: column;
+}
+
+.textContainer {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; */
+}
