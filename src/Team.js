@@ -39,22 +39,43 @@ const Team = () => {
                     pokemon.push(pokeData);
                 })
         }
+
+        if (pokemon.length > 5) {
+            checkDuplicates();
+        }
+    };
+
+    function checkDuplicates() {
+        // loop through each pokemon in the pokemon array
+        for (let i = 0; i < 6; i++) {
+            console.log(1)
+            // loop through all the pokemon after pokemon[i] in the array
+            for (let j = i; j < 6; j++) {
+                console.log(2)
+                if (pokemon[i].id === pokemon[j].id) {
+                    getPokemon()
+                    console.log(3)
+                    return
+                }
+                console.log(4)
+            }
+        }
     };
 
     // click function for the button below
     function click() {
         // calling get pokemon
         getPokemon()
+
         // delay before setting state to make sure that API call finishes
         setTimeout(() => {
             // setting pokeTeam state to the contents of the pokemon array
             setPokemonTeam(pokemon)
-        }, 200)
-    }
+        }, 300)
+    };
 
     return (
         <section className="flexContainer">
-            <button onClick={click}>Generate</button>
             {/* <Form handleSubmit={generateNums}/> */}
             <ul className="team flexContainer">
                 {
@@ -88,6 +109,7 @@ const Team = () => {
                     })
                 }
             </ul>
+            <button onClick={click}>Generate</button>
         </section>
     )
 }
