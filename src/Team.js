@@ -16,14 +16,8 @@ const Team = () => {
     // pokemonTeam state to hold the users current pokemon team
     const [pokemonTeam, setPokemonTeam] = useState([]);
 
-    // keeps track of current pokemon
-    const [currentPoke, setCurrentPoke] = useState({});
-
     // pokemon array to hold the pokemon objects before they get saved in state
     const pokemon = []
-
-    // value that keeps track of whether there is a duplicate pokemon
-    const [isDuplicate, setIsDuplicate] = useState([]);
 
     // random function that generates a number between 1 and 1015
     function random() {
@@ -33,7 +27,7 @@ const Team = () => {
 
     // function that calls pokeAPI
     function getPokemon() {
-        // for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 6; i++) {
 
             const url = new URL(`https://pokeapi.co/api/v2/pokemon/${random()}`);
 
@@ -47,60 +41,24 @@ const Team = () => {
                     }
 
                 }).then(pokeData => {
-                        setCurrentPoke(pokeData);
-                    
+                    pokemon.push(pokeData);
+
                 })
                 .catch((err) => {
                     alert("Something went wrong, please try again.")
                 })
-
-        updateTeam()
-        
-    };
-
-    // function that updates pokemon team
-    function updateTeam() {
-        if (pokemon.length > 0) {
-            checkDuplicate();
-
-            // pushing pokemon object from API to the pokemon array
-
-            if (isDuplicate == true) {
-                return
-            } else {
-                pokemon.push(currentPoke);
-            }
-
-        } else {
-            pokemon.push(currentPoke);
-        }
-    }
-
-    function checkDuplicate() {
-        for (let i = 0; i < pokemon.length; i++) {
-            if (currentPoke.id == pokemon[i].id) {
-                setIsDuplicate(true);
-                break;
-            }
         }
     };
 
     // click function for the button below
     function click() {
-        // // setting is duplicate to false cause thats default
-        // setIsDuplicate(false);
-
-        // // calling get pokemon
-        // getPokemon()
-
-        while (pokemon.length < 6) {
-            getPokemon()
-        }
+        // calling get pokemon
+        getPokemon()
 
         // delay before setting state to make sure that API call finishes
         setTimeout(() => {
             // setting pokeTeam state to the contents of the pokemon array
-            // setPokemonTeam(pokemon)
+            setPokemonTeam(pokemon)
         }, 300)
     };
 
