@@ -60,15 +60,31 @@ const Team = () => {
                 {
                     // mapping through pokemonTeam array
                     pokemonTeam.map((pokemonObj) => {
-                        return (
-                            // returning pokemon module with the data from the pokemon object
-                            <Pokemon
-                            // data passed with props
-                                key={pokemonObj.id}
-                                name={pokemonObj.name}
-                                type={pokemonObj.types[0].type.name}
-                                imageSource={pokemonObj.sprites.front_default} />
-                        );
+                        // checks if pokemon has two types or one type and renders a different component based on the result
+                        if (pokemonObj.types.length > 1) {
+                            // pokemon has two types
+                            return (
+                                // returning pokemon module with the data from the pokemon object
+                                <Pokemon
+                                    // data passed with props
+                                    key={pokemonObj.id}
+                                    name={pokemonObj.name}
+                                    type={pokemonObj.types[0].type.name}
+                                    type2={pokemonObj.types[1].type.name}
+                                    imageSource={pokemonObj.sprites.front_default} />
+                            );
+                        } else {
+                            // pokemon has one type
+                            return (
+                                // returning pokemon module with the data from the pokemon object
+                                <Pokemon
+                                    // data passed with props
+                                    key={pokemonObj.id}
+                                    name={pokemonObj.name}
+                                    type={pokemonObj.types[0].type.name}
+                                    imageSource={pokemonObj.sprites.front_default} />
+                            );
+                        };
                     })
                 }
             </ul>
