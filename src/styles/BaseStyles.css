@@ -1,22 +1,41 @@
 /* base styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800&display=swap');
+
+
 .wrapper {
     margin: 0 auto;
     max-width: 1080px;
     width: 80%;
 }
 
-img {}
+img {
+    max-width: 100%;
+    display: block;
+}
 
 /* font styles */
 
-body {}
+html {
+    font-size: 125%;
+}
+
+body {
+
+    /* base font incase others don't load */
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 h1,
 h2,
 h3,
 footer p {
     text-align: center;
+    margin: 0;
+    /* font-family: 'Baloo 2', cursive; */
+    font-family: 'Inconsolata', monospace;
 }
 
 /* button styles */
@@ -27,4 +46,17 @@ button {
     padding: 20px 10px;
     border: none;
     border-radius: 40px;
+}
+
+h1 {
+    
+    font-family: 'Baloo 2', cursive;
+}
+
+h2 {
+    background-color: palevioletred;
+}
+
+h3 {
+    background-color: palegreen;
 }

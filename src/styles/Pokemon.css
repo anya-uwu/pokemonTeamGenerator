@@ -17,4 +17,9 @@ li {
     /* display: flex;
     flex-direction: row;
     justify-content: space-evenly; */
+    background-color: aliceblue;
+}
+
+.imageContainer {
+    background-color: paleturquoise;
 }
