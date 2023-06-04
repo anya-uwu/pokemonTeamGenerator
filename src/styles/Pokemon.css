@@ -9,15 +9,26 @@
     width: 45%;
     height: 30%;
     flex-direction: column;
+    padding: 20px 0;
+    /* remove padding on mobile */
 }
 
 .textContainer {
     /* display: flex;
     flex-direction: row;
     justify-content: space-evenly; */
-    background-color: aliceblue;
 }
 
 .imageContainer {
-    background-color: paleturquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+img {
+    display: block;
+    max-width: 100%;
+
 }
