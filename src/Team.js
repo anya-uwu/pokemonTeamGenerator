@@ -16,61 +16,91 @@ const Team = () => {
     // pokemonTeam state to hold the users current pokemon team
     const [pokemonTeam, setPokemonTeam] = useState([]);
 
+    // keeps track of current pokemon
+    const [currentPoke, setCurrentPoke] = useState({});
+
     // pokemon array to hold the pokemon objects before they get saved in state
     const pokemon = []
 
+    // value that keeps track of whether there is a duplicate pokemon
+    const [isDuplicate, setIsDuplicate] = useState([]);
+
     // random function that generates a number between 1 and 1015
     function random() {
-        let number = Math.floor((Math.random() * 1015) + 1);
+        let number = Math.floor((Math.random() * 1010) + 1);
         return number;
     };
 
-    // function that calls API 6 times
+    // function that calls pokeAPI
     function getPokemon() {
-        for (let i = 0; i < 6; i++) {
+        // for (let i = 0; i < 6; i++) {
 
             const url = new URL(`https://pokeapi.co/api/v2/pokemon/${random()}`);
 
             fetch(url)
                 .then(results => {
-                    return results.json();
-                }).then(pokeData => {
-                    // pushing pokemon object from API to the pokemon array
-                    pokemon.push(pokeData);
-                })
-        }
 
-        if (pokemon.length > 5) {
-            checkDuplicates();
-        }
+                    if (results.ok) {
+                        return results.json();
+                    } else {
+                        throw new Error(results.statusText);
+                    }
+
+                }).then(pokeData => {
+                        setCurrentPoke(pokeData);
+                    
+                })
+                .catch((err) => {
+                    alert("Something went wrong, please try again.")
+                })
+
+        updateTeam()
+        
     };
 
-    function checkDuplicates() {
-        // loop through each pokemon in the pokemon array
-        for (let i = 0; i < 6; i++) {
-            console.log(1)
-            // loop through all the pokemon after pokemon[i] in the array
-            for (let j = i; j < 6; j++) {
-                console.log(2)
-                if (pokemon[i].id === pokemon[j].id) {
-                    getPokemon()
-                    console.log(3)
-                    return
-                }
-                console.log(4)
+    // function that updates pokemon team
+    function updateTeam() {
+        if (pokemon.length > 0) {
+            checkDuplicate();
+
+            // pushing pokemon object from API to the pokemon array
+
+            if (isDuplicate == true) {
+                return
+            } else {
+                pokemon.push(currentPoke);
+            }
+
+        } else {
+            pokemon.push(currentPoke);
+        }
+    }
+
+    function checkDuplicate() {
+        for (let i = 0; i < pokemon.length; i++) {
+            if (currentPoke.id == pokemon[i].id) {
+                setIsDuplicate(true);
+                break;
             }
         }
     };
 
     // click function for the button below
     function click() {
-        // calling get pokemon
-        getPokemon()
+        // // setting is duplicate to false cause thats default
+        // setIsDuplicate(false);
+
+        // // calling get pokemon
+        // getPokemon()
+
+        while (pokemon.length < 6) {
+            getPokemon()
+        }
 
         // delay before setting state to make sure that API call finishes
         setTimeout(() => {
             // setting pokeTeam state to the contents of the pokemon array
-            setPokemonTeam(pokemon)
+            // setPokemonTeam(pokemon)
         }, 300)
     };
 
@@ -82,6 +112,7 @@ const Team = () => {
                     // mapping through pokemonTeam array
                     pokemonTeam.map((pokemonObj) => {
                         // checks if pokemon has two types or one type and renders a different component based on the result
+
                         if (pokemonObj.types.length > 1) {
                             // pokemon has two types
                             return (
