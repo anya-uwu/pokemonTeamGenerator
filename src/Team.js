@@ -1,70 +1,48 @@
+// Team.js
+
 import Pokemon from "./Pokemon";
 import Form from "./Form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Team = () => {
-    // random function for generating random numbers
-    // maybe put in own module
 
-    // need a section to hold the generate buttons?
-    // maybe this should also run the code for generating pokemon and sending it to the pokemon.js for it to be displayed
-    // call it Generator.js???
+    // pokemonTeam state to hold the users current pokemon team
+    const [pokemonTeam, setPokemonTeam] = useState([]);
 
-    // should api call be done in this file
-
-    // maybe make the generate part a form instead so i can add more selection options later
-
-    // const [pokemonTeam, setPokemonTeam] = useState([]);
-    const [pokemonTeamTwo, setPokemonTeamTwo] = useState([])
-
+    // pokemon array to hold the pokemon objects before they get saved in state
     const pokemon = []
 
-    // function random() {
-    //     let number = Math.floor((Math.random() * 1015) + 1);
-    //     return number;
-    // };
+    // random function that generates a number between 1 and 1015
+    function random() {
+        let number = Math.floor((Math.random() * 1015) + 1);
+        return number;
+    };
 
+    // function that calls API 6 times
     function getPokemon() {
         for (let i = 0; i < 6; i++) {
-            let num = Math.floor((Math.random() * 1015) + 1);
-            console.log(num)
 
-            const url = new URL(`https://pokeapi.co/api/v2/pokemon/${num}`);
-            // console.log(url);
-            // url.search = new URLSearchParams({
-            //   name: "bulbasaur", 
-            // });
+            const url = new URL(`https://pokeapi.co/api/v2/pokemon/${random()}`);
 
             fetch(url)
                 .then(results => {
                     return results.json();
                 }).then(pokeData => {
+                    // pushing pokemon object from API to the pokemon array
                     pokemon.push(pokeData);
-
-                    // setPokemonTeamTwo(pokemon);
-                    // setPokemonTeam(...pokemonTeam, pokeData);
-                    // console.log(pokemonTeam)
-                    
-                    // console.log(pokeData.name);
                 })
-            
         }
-        // setPokemonTeamTwo(pokemon);
     };
 
-    // function generateNums() {
-    //     for (let i = 0; i < 6; i++) {
-    //         getPokemon();
-    //         console.log(2)
-    //     }
-    // };
-
+    // click function for the button below
     function click() {
+        // calling get pokemon
         getPokemon()
+        // delay before setting state to make sure that API call finishes
         setTimeout(() => {
-            setPokemonTeamTwo(pokemon)
-        }, 100)
-        
+            // setting pokeTeam state to the contents of the pokemon array
+            setPokemonTeam(pokemon)
+        }, 200)
     }
 
     return (
@@ -73,29 +51,18 @@ const Team = () => {
             {/* <Form handleSubmit={generateNums}/> */}
             <ul className="team flexContainer">
                 {
-                    // pokemonTeamTwo.length > 0 ? 
-                    pokemonTeamTwo.map((pokemonObj) => {
+                    // mapping through pokemonTeam array
+                    pokemonTeam.map((pokemonObj) => {
                         return (
+                            // returning pokemon module with the data from the pokemon object
                             <Pokemon
+                            // data passed with props
                                 key={pokemonObj.id}
                                 name={pokemonObj.name}
                                 type={pokemonObj.types[0].type.name}
                                 imageSource={pokemonObj.sprites.front_default} />
-
-                            // <li className="pokemon flexContainer">
-                            //     <div className="imageContainer">
-                            //         <img src={pokemonObj.sprites.front_default} alt={`image of ${pokemonObj.name}`} />
-                            //     </div>
-                            //     <div className="textContainer">
-                            //         <h2>{pokemonObj.name}</h2>
-
-                            //         {/* could also be a p element */}
-                            //         <h3>{pokemonObj.types[0].type.name}</h3>
-                            //     </div>
-                            // </li>
                         );
                     })
-                    // : null
                 }
             </ul>
         </section>
