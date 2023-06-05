@@ -1,0 +1,30 @@
+/* styles for Team.js */
+
+section {
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ul styles */
+.team {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: grey;
+}
+
+
+/* media query for mobile devices */
+@media (max-width: 400px) {
+    .team {
+        padding: 5px;
+
+    }
+}
