@@ -1,13 +1,8 @@
 // Team.js
 
 import Pokemon from "./Pokemon";
-// import Form from "./Form";
 import './styles/Team.css'
 import { useEffect, useState } from "react";
-
-// error handling for the api call
-// check for duplicate pokemon
-// delete extra css files
 
 const Team = () => {
 
@@ -27,30 +22,35 @@ const Team = () => {
     function getPokemon() {
         for (let i = 0; i < 6; i++) {
 
+            // url for one random pokemon
             const url = new URL(`https://pokeapi.co/api/v2/pokemon/${random()}`);
 
+            // fetching the data
             fetch(url)
                 .then(results => {
-
+                    // error handling
                     if (results.ok) {
+                        // return results
                         return results.json();
                     } else {
                         throw new Error(results.statusText);
                     }
 
                 }).then(pokeData => {
+                    // adding the pokemon object from the API to the pokemon array
                     pokemon.push(pokeData);
 
                 })
                 .catch((err) => {
+                    // error handling if API call fails
                     alert("Something went wrong, please try again.")
                 })
-        }
+        };
     };
 
     // click function for the button below
     function click() {
-        // calling get pokemon
+        // fetching the pokemon
         getPokemon()
 
         // delay before setting state to make sure that API call finishes
@@ -73,7 +73,6 @@ const Team = () => {
                     // mapping through pokemonTeam array
                     pokemonTeam.map((pokemonObj) => {
                         // checks if pokemon has two types or one type and renders a different component based on the result
-
                         if (pokemonObj.types.length > 1) {
                             // pokemon has two types
                             return (
@@ -101,9 +100,10 @@ const Team = () => {
                     })
                 }
             </ul>
+            {/* button for generating the pokemon */}
             <button onClick={click}>Generate</button>
         </section>
-    )
-}
+    );
+};
 
 export default Team;

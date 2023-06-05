@@ -8,8 +8,6 @@
     width: 90%;
 }
 
-/* font styles */
-
 html {
     font-size: 125%;
 }
@@ -20,10 +18,13 @@ body {
     background: lightblue;
 }
 
+/* glass effect styles */
 .glass {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
     backdrop-filter: blur(7px);
 }
+
+/* base font styles */
 
 h1,
 h2,
@@ -39,13 +40,15 @@ footer p {
 
 button {
     display: block;
-    /* width: 40%; */
     padding: 20px 30px;
+    
     border: none;
     border-radius: 40px;
+
     font-family: 'Baloo 2', cursive;
     font-weight: 500;
     font-size: clamp(0.8rem, 6vw, 1rem);
+
     background-color: white;
 
 }
@@ -60,8 +63,9 @@ button:focus {
     background-color: rgb(27, 30, 30);
 }
 
+/* text styles */
+
 h1 {
-    font-family: 'Baloo 2', cursive;
     padding-top: 2vh;
     font-weight: 700;
     font-size: clamp(1.4rem, 7vw, 2rem);
@@ -78,6 +82,7 @@ h3 {
     font-weight: 500;
 }
 
+/* media query for mobile devices */
 @media (max-width: 400px) {
     button {
         padding: 10px 10px;

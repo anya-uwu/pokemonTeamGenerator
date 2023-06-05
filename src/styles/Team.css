@@ -1,7 +1,5 @@
 /* styles for Team.js */
 
-/* section styles */
-
 section {
     flex-direction: column;
     margin-bottom: 20px;
@@ -13,6 +11,7 @@ section {
     align-items: center;
 }
 
+/* ul styles */
 .team {
     flex-wrap: wrap;
     justify-content: space-around;
@@ -21,6 +20,8 @@ section {
     background-color: grey;
 }
 
+
+/* media query for mobile devices */
 @media (max-width: 400px) {
     .team {
         padding: 5px;

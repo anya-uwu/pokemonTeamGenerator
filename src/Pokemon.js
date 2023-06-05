@@ -1,8 +1,6 @@
 // Pokemon.js
 import './styles/Pokemon.css';
 
-
-
 const Pokemon = ({ name, type, type2, imageSource }) => {
     return(
         <li className="pokemon flexContainer">

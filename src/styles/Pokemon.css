@@ -1,24 +1,17 @@
 /* styles for Pokemon.js */
 
+/* for each pokemon li element */
 .pokemon {
     list-style: none;
-    padding: 0;
     margin: 10px 0;
+    padding: 20px 0;
     border-radius: 30px;
     width: 45%;
     height: 30%;
     flex-direction: column;
-    padding: 20px 0;
-    /* remove padding on mobile */
 
     background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 100%);
     box-shadow: 6px 6px 20px rgba(102, 125, 138, 0.2)
-}
-
-.textContainer {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; */
 }
 
 .imageContainer {
@@ -33,7 +26,7 @@ img {
 
 }
 
-
+/* media query for mobile devices */
 @media (max-width: 400px) {
     .pokemon {
         padding: 0 0 5px 0;
