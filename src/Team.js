@@ -62,6 +62,7 @@ const Team = () => {
 
     // useEffect so that user is shown a random team on page load before they click the button
     useEffect(() => {
+        console.log(1)
         return () => click()
     }, []);
 
