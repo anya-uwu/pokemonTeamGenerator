@@ -1,7 +1,7 @@
 import Team from './Team';
-import './styles/App.css';
 import './styles/Setup.css';
 import './styles/BaseStyles.css';
+import './styles/MediaQueries.css';
 
 function App() {
   return (

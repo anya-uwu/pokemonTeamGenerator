@@ -2,9 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800&display=swap');
-
-
 .wrapper {
     margin: 0 auto;
     max-width: 500px;
@@ -20,6 +17,12 @@ html {
 body {
     /* base font incase others don't load */
     font-family: Arial, Helvetica, sans-serif;
+    background: lightblue;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+    backdrop-filter: blur(7px);
 }
 
 h1,
@@ -28,8 +31,8 @@ h3,
 footer p {
     text-align: center;
     margin: 0;
-    /* font-family: 'Baloo 2', cursive; */
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Baloo 2', cursive;
+    color: rgb(27, 30, 30);
 }
 
 /* button styles */
@@ -37,23 +40,46 @@ footer p {
 button {
     display: block;
     /* width: 40%; */
-    padding: 20px 20px;
+    padding: 20px 30px;
     border: none;
     border-radius: 40px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 500;
     font-size: clamp(0.8rem, 6vw, 1rem);
+    background-color: white;
+
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(27, 30, 30);
+}
+
+button:focus {
+    color: white;
+    background-color: rgb(27, 30, 30);
 }
 
 h1 {
     font-family: 'Baloo 2', cursive;
     padding-top: 2vh;
+    font-weight: 700;
     font-size: clamp(1.4rem, 7vw, 2rem);
 }
 
 h2 {
     text-transform: capitalize;
     font-size: clamp(1rem, 5vw, 1.6rem);
+    font-weight: 600;
 }
 
 h3 {
-    font-size: clamp(0.8rem, 4vw, 1.4rem);
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+    font-weight: 500;
+}
+
+@media (max-width: 400px) {
+    button {
+        padding: 10px 10px;
+    }
 }

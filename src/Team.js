@@ -68,7 +68,7 @@ const Team = () => {
     return (
         <section className="flexContainer">
             {/* <Form handleSubmit={generateNums}/> */}
-            <ul className="team flexContainer">
+            <ul className="team flexContainer glass">
                 {
                     // mapping through pokemonTeam array
                     pokemonTeam.map((pokemonObj) => {

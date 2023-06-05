@@ -4,13 +4,15 @@
     list-style: none;
     padding: 0;
     margin: 10px 0;
-    background-color: lightgray;
     border-radius: 30px;
     width: 45%;
     height: 30%;
     flex-direction: column;
     padding: 20px 0;
     /* remove padding on mobile */
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 100%);
+    box-shadow: 6px 6px 20px rgba(102, 125, 138, 0.2)
 }
 
 .textContainer {
@@ -23,12 +25,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
 }
 
 img {
     display: block;
     max-width: 100%;
 
+}
+
+
+@media (max-width: 400px) {
+    .pokemon {
+        padding: 0 0 5px 0;
+        margin: 5px 0;
+        width: 47%;
+        border-radius: 20px;
+    }
 }
