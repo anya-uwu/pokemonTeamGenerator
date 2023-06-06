@@ -65,6 +65,7 @@ const Team = () => {
         click()
     }, []);
 
+    // return statement
     return (
         <section className="flexContainer">
             {/* <Form handleSubmit={generateNums}/> */}
