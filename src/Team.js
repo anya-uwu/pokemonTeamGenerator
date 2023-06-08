@@ -57,7 +57,7 @@ const Team = () => {
         setTimeout(() => {
             // setting pokeTeam state to the contents of the pokemon array
             setPokemonTeam(pokemon)
-        }, 300)
+        }, 600)
     };
 
     // useEffect so that user is shown a random team on page load before they click the button
