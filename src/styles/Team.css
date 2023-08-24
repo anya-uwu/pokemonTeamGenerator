@@ -20,11 +20,9 @@ section {
     background-color: grey;
 }
 
-
 /* media query for mobile devices */
 @media (max-width: 400px) {
     .team {
         padding: 5px;
-
     }
 }
